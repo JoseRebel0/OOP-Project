@@ -17,9 +17,12 @@ namespace Trabalho_POO
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-    public class CamisolaFut : Camisola // Herança da classe Camisola
+    public class CamisolaFut : Camisola //Heritance from Camisola
     {
-        // Criação das variáveis vazias
+
+        /// <summary>
+        /// Creating empty attributes
+        /// </summary>
         #region Attributes
 
         string team, typeShirt;
@@ -32,6 +35,9 @@ namespace Trabalho_POO
 
         #region Constructors
 
+        /// <summary>
+        /// Default constructor. Empty values.
+        /// </summary>
         public CamisolaFut()
         {
             team = "";
@@ -39,10 +45,21 @@ namespace Trabalho_POO
             year = 0;
         }
 
+        /// <summary>
+        /// Parameterized constructor.
+        /// </summary>
+        /// <param name="size">Shirt size. (S/M/L/XL/XXL)</param>
+        /// <param name="price">Shirt price. (€)</param>
+        /// <param name="typeSleeve">Type of sleeve. (Long/Short)</param>
+        /// <param name="manufacturer">Shirt manufacturer.</param>
+        /// <param name="reference">Shirt reference.</param>
+        /// <param name="t">The team of the shirt.</param>
+        /// <param name="tS">Type of the shirt. (Home/Away/Third)</param>
+        /// <param name="y">Year/Season</param>
         public CamisolaFut(
             string size, double price, string typeSleeve, string manufacturer, string reference,
             string t, string tS, int y)
-        :    base(size, price, typeSleeve, manufacturer, reference) // Indica quais é que são da classe pai
+        :    base(size, price, typeSleeve, manufacturer, reference) // Indicates who came from base
         {
             team = t;
             typeShirt = tS;
@@ -51,7 +68,9 @@ namespace Trabalho_POO
 
         #endregion
 
-
+        /// <summary>
+        /// Gets or sets the properties of the class.
+        /// </summary>
         #region Properties
 
         public string Team
@@ -77,7 +96,12 @@ namespace Trabalho_POO
 
         #region Overrides
 
-        // Para já não manter o método de mostrar dados
+
+
+        #endregion
+
+
+        #region OtherMethods
 
         //public override string GetData()
         //{
@@ -85,10 +109,6 @@ namespace Trabalho_POO
         //    return $"{gbd}\nTeam: {team}\nType Shirt: {typeShirt}\nYear: {year}\n";
         //}
 
-        #endregion
-
-
-        #region OtherMethods
         #endregion
 
 

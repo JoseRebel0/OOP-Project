@@ -20,7 +20,9 @@ namespace Trabalho_POO
     public class Camisola: Vestuario
     {
 
-        // Criação das variáveis vazias
+        /// <summary>
+        /// Creating empty attributes
+        /// </summary>
         #region Attributes 
 
         string size, typeSleeve;
@@ -32,15 +34,24 @@ namespace Trabalho_POO
 
         #region Constructors
 
-        // Criação das variáveis por defeito (vazias)
+        /// <summary>
+        /// Default constructor. Empty values.
+        /// </summary>
         public Camisola() 
         {
             size = "";
             typeSleeve = "";
 
         }
-
-        // Recebe os valores atribuidos no main
+        /// <summary>
+        /// Parameterized constructor.
+        /// </summary>
+        /// <param name="s">Shirt size. (S/M/L/XL/XXL)</param>
+        /// <param name="price">Shirt price. (€)</param>
+        /// <param name="manufacturer">Shirt manufacturer.</param>
+        /// <param name="reference">Shirt reference.</param>
+        /// <param name="tS">Type of sleeve. (Long/Short)</param>
+        // Receiving parameters from the main
         public Camisola(string s, double price, string manufacturer, string reference, string tS)
         :base(price, reference, manufacturer) 
         {
@@ -52,10 +63,12 @@ namespace Trabalho_POO
 
         #endregion
 
-
+        /// <summary>
+        /// Gets or sets the properties of the class.
+        /// </summary>
         #region Properties
 
-        // A maneira como devem ser mostradas
+        // The way they should be shown
         public string Size
         {
             get { return size.ToUpper(); }
@@ -68,7 +81,7 @@ namespace Trabalho_POO
             set { typeSleeve = value; }
         }
 
-        
+
 
         #endregion
 
@@ -79,7 +92,7 @@ namespace Trabalho_POO
 
         #region OtherMethods
 
-        // Para já não manter o método de mostrar dados
+        // For now just keep it like this
 
         // Método de mostrar a criação da camisola (só teste)
         //public virtual string GetData() // Sem outra maneira de fazer return a tudo

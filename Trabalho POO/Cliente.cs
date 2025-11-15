@@ -20,13 +20,16 @@ namespace Trabalho_POO
     /// <example></example>
     public class Cliente 
     {
+        /// <summary>
+        /// Creating empty attributes
+        /// </summary>
         #region Attributes
 
         string name;
         DateTime bornDate;
         int nif;
         int phone;
-        double totalSpent; 
+        double totalSpent;
 
         #endregion
 
@@ -35,6 +38,9 @@ namespace Trabalho_POO
 
         #region Constructors
 
+        /// <summary>
+        /// Default constructor. Empty values.
+        /// </summary>
         public Cliente()
         {
             name = "";
@@ -44,6 +50,14 @@ namespace Trabalho_POO
             totalSpent = 0;
         }
 
+        /// <summary>
+        /// Parameterized constructor.
+        /// </summary>
+        /// <param name="nm">Name of the client.</param>
+        /// <param name="bD">Birth date of the client.</param>
+        /// <param name="n">Tax identification number (NIF) of the client.</param>
+        /// <param name="p">Phone number of the client.</param>
+        /// <param name="tot">The total amount spent by the client.</param>
         public Cliente(string nm, DateTime bD, int n, int p, double tot)
         {
                 name = nm;
@@ -55,10 +69,12 @@ namespace Trabalho_POO
 
         #endregion
 
-
+        /// <summary>
+        /// Gets or sets the properties of the class.
+        /// </summary>
         #region Properties
-        
-            public string Name
+
+        public string Name
             {
                 get { return name; }
                 set { name = value; }

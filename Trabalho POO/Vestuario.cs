@@ -18,8 +18,12 @@ namespace Trabalho_POO
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
+
     public class Vestuario
     {
+        /// <summary>
+        /// Creating empty attributes
+        /// </summary>
         #region Attributes
 
         double price;
@@ -30,7 +34,9 @@ namespace Trabalho_POO
         #region Methods
 
         #region Constructors
-
+        /// <summary>
+        /// Default constructor. Empty values.
+        /// </summary>
         public Vestuario()
         {  
             manufacturer = "";
@@ -38,6 +44,12 @@ namespace Trabalho_POO
             price = 0.0f;
         }
 
+        /// <summary>
+        /// Parameterized constructor.
+        /// </summary>
+        /// <param name="p">Product price.</param>
+        /// <param name="r">Reference of the product.</param>
+        /// <param name="m">Product manufacturer.</param>
         public Vestuario(double p, string r, string m)
         {
             price = p;
@@ -47,6 +59,10 @@ namespace Trabalho_POO
 
         #endregion
 
+
+        /// <summary>
+        /// Gets or sets the properties of the class.
+        /// </summary>
         #region Properties
 
         public double Price
