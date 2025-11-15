@@ -47,7 +47,4 @@ Visual Studio
 
 GitHub for version control
 
-📄 Status
 
-Phase 1 completed successfully.
-The foundations of the system are ready for expansion into stock control, sales logic, and persistent storage.
