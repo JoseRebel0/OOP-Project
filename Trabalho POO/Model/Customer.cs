@@ -18,7 +18,8 @@ namespace Trabalho_POO
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-    public class Cliente 
+    [Serializable]
+    public class Customer 
     {
         /// <summary>
         /// Creating empty attributes
@@ -29,7 +30,7 @@ namespace Trabalho_POO
         DateTime bornDate;
         int nif;
         int phone;
-        double totalSpent;
+
 
         #endregion
 
@@ -41,13 +42,12 @@ namespace Trabalho_POO
         /// <summary>
         /// Default constructor. Empty values.
         /// </summary>
-        public Cliente()
+        public Customer()
         {
             name = "";
             bornDate = DateTime.MinValue; //smallest datetime value possible
             nif = 0;
             phone = 0;
-            totalSpent = 0;
         }
 
         /// <summary>
@@ -57,14 +57,12 @@ namespace Trabalho_POO
         /// <param name="bD">Birth date of the client.</param>
         /// <param name="n">Tax identification number (NIF) of the client.</param>
         /// <param name="p">Phone number of the client.</param>
-        /// <param name="tot">The total amount spent by the client.</param>
-        public Cliente(string nm, DateTime bD, int n, int p, double tot)
+        public Customer(string nm, DateTime bD, int n, int p)
         {
                 name = nm;
                 bornDate = bD;
                 nif = n;
                 phone = p;
-                totalSpent = tot;
         }
 
         #endregion
@@ -98,37 +96,7 @@ namespace Trabalho_POO
                 set { phone = value; }
             }
 
-            public double TotalSpent
-            {
-                get { return totalSpent; }
-                set { totalSpent = value; }
-            }
-
         #endregion
-
-
-        #region Overrides
-        #endregion
-
-
-        #region OtherMethods
-
-        // Para já não manter o método de mostrar dados
-
-        // Método de mostrar a criação do cliente (só teste)
-        //public virtual string GetData() //Com virtual a classe filho pode alterar e assim acrescentar mais coisas
-        //{
-        //    return $"Nome: {name} \n Data de Nascimento: {bornDate:d} \n NIF: {nif} \n Contacto: {phone}\n";
-        //}
-
-
-        // : d mostra a data só com dia, mês e ano
-        #endregion
-
-
-        #region Destructor
-        #endregion
-
 
         #endregion
 

@@ -18,8 +18,8 @@ namespace Trabalho_POO
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-
-    public class Vestuario
+    [Serializable]
+    public class Product
     {
         /// <summary>
         /// Creating empty attributes
@@ -28,6 +28,7 @@ namespace Trabalho_POO
 
         double price;
         string manufacturer, reference;
+        int stock;
 
         #endregion
 
@@ -37,11 +38,12 @@ namespace Trabalho_POO
         /// <summary>
         /// Default constructor. Empty values.
         /// </summary>
-        public Vestuario()
+        public Product()
         {  
             manufacturer = "";
             reference = "";
             price = 0.0f;
+            stock = 0;
         }
 
         /// <summary>
@@ -50,11 +52,12 @@ namespace Trabalho_POO
         /// <param name="p">Product price.</param>
         /// <param name="r">Reference of the product.</param>
         /// <param name="m">Product manufacturer.</param>
-        public Vestuario(double p, string r, string m)
+        public Product(double p, string r, string m, int s)
         {
             price = p;
             reference = r;
             manufacturer = m;
+            stock = s;
         }
 
         #endregion
@@ -83,23 +86,11 @@ namespace Trabalho_POO
             set { reference = value; }
         }
 
-        #endregion
-
-        #region Overrides
-
-
-
-        #endregion
-
-        #region OtherMethods
-
-
-
-        #endregion
-
-        #region Destructor
-
-
+        public int Stock
+        {
+            get { return stock; }
+            set { stock = value; }
+        }
 
         #endregion
 

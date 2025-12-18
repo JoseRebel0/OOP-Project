@@ -17,7 +17,8 @@ namespace Trabalho_POO
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-    public class CamisolaFut : Camisola //Heritance from Camisola
+    [Serializable]
+    public class FutShirt : Shirt //Heritance from Shirt Class
     {
 
         /// <summary>
@@ -38,7 +39,7 @@ namespace Trabalho_POO
         /// <summary>
         /// Default constructor. Empty values.
         /// </summary>
-        public CamisolaFut()
+        public FutShirt()
         {
             team = "";
             typeShirt = "";
@@ -56,10 +57,10 @@ namespace Trabalho_POO
         /// <param name="t">The team of the shirt.</param>
         /// <param name="tS">Type of the shirt. (Home/Away/Third)</param>
         /// <param name="y">Year/Season</param>
-        public CamisolaFut(
+        public FutShirt(
             string size, double price, string typeSleeve, string manufacturer, string reference,
-            string t, string tS, int y)
-        :    base(size, price, typeSleeve, manufacturer, reference) // Indicates who came from base
+            string t, string tS, int y, int stock)
+        :    base(size, price, typeSleeve, manufacturer, reference, stock) // Indicates who came from base
         {
             team = t;
             typeShirt = tS;
@@ -91,28 +92,6 @@ namespace Trabalho_POO
             set { year = value; }
         }
 
-        #endregion
-
-
-        #region Overrides
-
-
-
-        #endregion
-
-
-        #region OtherMethods
-
-        //public override string GetData()
-        //{
-        //    var gbd = base.GetData(); // variavel que vai buscar o GetData da classe Camisola
-        //    return $"{gbd}\nTeam: {team}\nType Shirt: {typeShirt}\nYear: {year}\n";
-        //}
-
-        #endregion
-
-
-        #region Destructor
         #endregion
 
         #endregion

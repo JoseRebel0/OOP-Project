@@ -17,7 +17,8 @@ namespace Trabalho_POO
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-    public class Camisola: Vestuario
+    [Serializable]
+    public class Shirt: Product
     {
 
         /// <summary>
@@ -37,7 +38,7 @@ namespace Trabalho_POO
         /// <summary>
         /// Default constructor. Empty values.
         /// </summary>
-        public Camisola() 
+        public Shirt() 
         {
             size = "";
             typeSleeve = "";
@@ -52,8 +53,8 @@ namespace Trabalho_POO
         /// <param name="reference">Shirt reference.</param>
         /// <param name="tS">Type of sleeve. (Long/Short)</param>
         // Receiving parameters from the main
-        public Camisola(string s, double price, string manufacturer, string reference, string tS)
-        :base(price, reference, manufacturer) 
+        public Shirt(string s, double price, string manufacturer, string reference, string tS, int stock)
+        :base(price, reference, manufacturer, stock) 
         {
             
             size = s;
@@ -83,32 +84,6 @@ namespace Trabalho_POO
 
 
 
-        #endregion
-
-
-        #region Overrides
-        #endregion
-
-
-        #region OtherMethods
-
-        // For now just keep it like this
-
-        // Método de mostrar a criação da camisola (só teste)
-        //public virtual string GetData() // Sem outra maneira de fazer return a tudo
-        //{
-        //    return $"Size: {Size}\n" +
-        //    $"TypeSleeve: {TypeSleeve}\n" +
-        //    $"Price: {Price}\n" +
-        //    $"Manufacturer: {Manufacturer}\n" +
-        //    $"Reference: {Reference}";
-
-        //}
-
-        #endregion
-
-
-        #region Destructor
         #endregion
 
         #endregion
