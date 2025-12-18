@@ -17,7 +17,7 @@ namespace Trabalho_POO
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-    [Serializable] bacv
+    [Serializable]
     public class Polo : Shirt
     {
         #region Attributes
