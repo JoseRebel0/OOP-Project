@@ -1,5 +1,5 @@
 ﻿/*
-*	<copyright file="IClienteView.cs" company="IPCA">
+*	<copyright file="ICostumerView.cs" company="IPCA">
 *		Copyright (c) 2025 All Rights Reserved
 *	</copyright>
 * 	<author>joser</author>

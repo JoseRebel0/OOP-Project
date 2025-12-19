@@ -94,6 +94,15 @@ namespace Trabalho_POO
 
         #endregion
 
+        #region Other Methods
+
+        HowManyProducts()
+        {
+            return stock.SUM(s => s.Stock)
+        }
+
+        #endregion
+
         #endregion
     }
 }
