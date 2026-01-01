@@ -1,8 +1,9 @@
+﻿/*
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Trabalho_POO.Controller;
+using Trabalho_POO.Model;
+using Trabalho_POO.View;
 
 namespace Trabalho_POO
 {
