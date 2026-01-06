@@ -39,6 +39,7 @@ namespace Trabalho_POO.Model
         }
 
         #region Other Methods
+
         public double GetTotalSpent() //Total spent by the customer
         {
             return sales.Sum(s => s.GetTotal());

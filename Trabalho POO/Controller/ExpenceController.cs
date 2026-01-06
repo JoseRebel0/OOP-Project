@@ -31,8 +31,10 @@ namespace Trabalho_POO.Controller
             customerView = cv;
         }
 
+
         public void ShowTotalSpent()
         {
+            double total = expence.GetTotalSpent();
             customerView.HowManySpent(expence.GetTotalSpent());
         }
 

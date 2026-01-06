@@ -24,7 +24,15 @@ namespace Trabalho_POO.View
     public interface ICustomerView
     {
 
+        void ShowCustomers(List<Customer> customers);
+
+        string AskName();
+        DateTime AskBirthDate();
+        int AskNIF();
+        int AskPhone();
         void HowManySpent(double total);
+
+
 
     }
 }

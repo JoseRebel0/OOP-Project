@@ -1,5 +1,5 @@
 ﻿/*
-*	<copyright file="Camisola.cs" company="IPCA">
+*	<copyright file="Shirt.cs" company="IPCA">
 *		Copyright (c) 2025 All Rights Reserved
 *	</copyright>
 * 	<author>joser</author>
@@ -26,7 +26,7 @@ namespace Trabalho_POO
         /// </summary>
         #region Attributes 
 
-        string size, typeSleeve;
+        string size, typeSleeve, type;
 
         #endregion
 
@@ -42,6 +42,7 @@ namespace Trabalho_POO
         {
             size = "";
             typeSleeve = "";
+            type = "";
 
         }
         /// <summary>
@@ -53,14 +54,15 @@ namespace Trabalho_POO
         /// <param name="reference">Shirt reference.</param>
         /// <param name="tS">Type of sleeve. (Long/Short)</param>
         // Receiving parameters from the main
-        public Shirt(string s, double price, string manufacturer, string reference, string tS, int stock)
-        :base(price, reference, manufacturer, stock) 
+         public Shirt(string s, double price, string tS, string manufacturer, string reference, string t)
+            : base(price, manufacturer, reference)
         {
             
             size = s;
             typeSleeve = tS;
-
+            type = t;
         }
+
 
         #endregion
 
@@ -82,7 +84,11 @@ namespace Trabalho_POO
             set { typeSleeve = value; }
         }
 
-
+        public string Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
 
         #endregion
 

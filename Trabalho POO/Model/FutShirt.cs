@@ -1,5 +1,5 @@
 ﻿/*
-*	<copyright file="CamisolaFut.cs" company="IPCA">
+*	<copyright file="FutShirt.cs" company="IPCA">
 *		Copyright (c) 2025 All Rights Reserved
 *	</copyright>
 * 	<author>joser</author>
@@ -26,7 +26,7 @@ namespace Trabalho_POO
         /// </summary>
         #region Attributes
 
-        string team, typeShirt;
+        string team, shirtClass;
         int year;
 
         #endregion
@@ -42,7 +42,7 @@ namespace Trabalho_POO
         public FutShirt()
         {
             team = "";
-            typeShirt = "";
+            shirtClass = "";
             year = 0;
         }
 
@@ -55,15 +55,14 @@ namespace Trabalho_POO
         /// <param name="manufacturer">Shirt manufacturer.</param>
         /// <param name="reference">Shirt reference.</param>
         /// <param name="t">The team of the shirt.</param>
-        /// <param name="tS">Type of the shirt. (Home/Away/Third)</param>
+        /// <param name="c">Class of the shirt. (Home/Away/Third)</param>
         /// <param name="y">Year/Season</param>
-        public FutShirt(
-            string size, double price, string typeSleeve, string manufacturer, string reference,
-            string t, string tS, int y, int stock)
-        :    base(size, price, typeSleeve, manufacturer, reference, stock) // Indicates who came from base
+        public FutShirt(string size, double price, string typeSleeve, string type, string manufacturer,
+            string reference,string t, string c, int y)
+            : base(size, price, typeSleeve, manufacturer, reference, type) // Indicates who came from base
         {
             team = t;
-            typeShirt = tS;
+            shirtClass = c;
             year = y;
         }
 
@@ -80,10 +79,10 @@ namespace Trabalho_POO
             set { team = value; }
         }
 
-        public string TypeShirt
+        public string ShirtClass
         {
-            get { return typeShirt; }
-            set { typeShirt = value; }
+            get { return shirtClass; }
+            set { shirtClass = value; }
         }
 
         public int Year

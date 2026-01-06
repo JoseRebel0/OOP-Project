@@ -36,8 +36,9 @@ namespace Trabalho_POO
             button = "";
         }
         //Remember to keep the order of parameters as they are in Shirt class (otherwise will be error)
-        public Polo(string c, string b, double price, string manufacturer, string reference, int stock, string typeSleeve, string size)
-            : base(size, price, manufacturer, reference, typeSleeve, stock)
+        public Polo(string size, double price, string typeSleeve, string type, string manufacturer,
+            string reference, string c, string b)
+            : base(size, price, typeSleeve, manufacturer, reference, type)
         {
             color = c;
             button = b;

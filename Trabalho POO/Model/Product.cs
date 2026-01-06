@@ -1,5 +1,5 @@
 ﻿/*
-*	<copyright file="Vestuario.cs" company="IPCA">
+*	<copyright file="Product.cs" company="IPCA">
 *		Copyright (c) 2025 All Rights Reserved
 *	</copyright>
 * 	<author>joser</author>
@@ -11,6 +11,7 @@ using System.Security.Policy;
 
 namespace Trabalho_POO
 {
+    /// <summary>
     /// <summary>
     /// Purpose:
     /// Created by: joser
@@ -28,7 +29,6 @@ namespace Trabalho_POO
 
         double price;
         string manufacturer, reference;
-        int stock;
 
         #endregion
 
@@ -43,7 +43,6 @@ namespace Trabalho_POO
             manufacturer = "";
             reference = "";
             price = 0.0f;
-            stock = 0;
         }
 
         /// <summary>
@@ -52,12 +51,11 @@ namespace Trabalho_POO
         /// <param name="p">Product price.</param>
         /// <param name="r">Reference of the product.</param>
         /// <param name="m">Product manufacturer.</param>
-        public Product(double p, string r, string m, int s)
+        public Product(double p, string r, string m)
         {
             price = p;
             reference = r;
             manufacturer = m;
-            stock = s;
         }
 
         #endregion
@@ -86,20 +84,10 @@ namespace Trabalho_POO
             set { reference = value; }
         }
 
-        public int Stock
-        {
-            get { return stock; }
-            set { stock = value; }
-        }
-
         #endregion
 
         #region Other Methods
 
-        HowManyProducts()
-        {
-            return stock.SUM(s => s.Stock)
-        }
 
         #endregion
 

@@ -1,5 +1,5 @@
 ﻿/*
-*	<copyright file="Calças.cs" company="IPCA">
+*	<copyright file="Pants.cs" company="IPCA">
 *		Copyright (c) 2025 All Rights Reserved
 *	</copyright>
 * 	<author>joser</author>
@@ -22,8 +22,8 @@ namespace Trabalho_POO
     {
         #region Attributes
 
-        string size, model, color;
-
+        string model, color, type;
+        int size;
 
         #endregion
 
@@ -33,24 +33,26 @@ namespace Trabalho_POO
 
         public Pants()
         {
-            size = "";
+            size = 0;
             model = "";
             color = "";
+            type = "";
         }
 
-        public Pants(string s, string m, double price, string manufacturer, string reference, string c, int stock)
-            : base(price, reference, manufacturer, stock)
+        public Pants(int s, string m, string t, double price, string manufacturer, string reference, string c)
+           : base(price, manufacturer, reference)
         {
             size = s;
             model = m;
             color = c;
+            type = t;
         }
 
         #endregion
 
         #region Properties
 
-        public string Size
+        public int Size
         {
             get { return size; }
             set { size = value; }
@@ -62,10 +64,16 @@ namespace Trabalho_POO
             set { model = value; }
         }
 
-        public string Cor
+        public string Color
         {
             get { return color; }
             set { color = value; }
+        }
+
+        public string Type
+        {
+            get { return type; }
+            set { type = value; }
         }
 
         #endregion
