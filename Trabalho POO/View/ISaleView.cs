@@ -16,7 +16,7 @@ namespace Trabalho_POO.View
         void ShowSales(List<Sale> sales);
         void ShowSaleDetails(Sale sale, List<Customer> customers, List<Product> products);
 
-        string AskNIFCustomer();
+        int AskNIFCustomer();
         string AskProductRef(List<Product> products);
         bool AskMoreProducts();
     }

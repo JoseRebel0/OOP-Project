@@ -12,150 +12,220 @@ using Trabalho_POO.Model;
 
 namespace Trabalho_POO.View
 {
-	public class ProductView : IProductView
-	{
+    public class ProductView : IProductView
+    {
 
-		public int AskType()
-		{
-			while (true)
-			{
-				Console.WriteLine("\nType:");
-				Console.WriteLine("1. Football Shirt");
-				Console.WriteLine("2. Polo");
-				Console.WriteLine("3. Pants");
-				Console.WriteLine("4. Regular shirt");
-				if (type >= 1 && type <= 3)
-					return type;
-				Console.WriteLine("Opção inválida.");
-			}
-		}
+        public string AskType()
+        {
+            while (true)
+            {
+                Console.WriteLine("\nProduct Type:");
+                Console.WriteLine("-> Shirt");
+                Console.WriteLine("-> Pants");
+                Console.Write("Choose : ");
 
-		public double AskPrice()
-		{
-			while (true)
-			{
-				Console.WriteLine("Price (€): ");
-				Console.ReadLine();
+                string type = Console.ReadLine().Trim();
+                
+                if (type == "Shirt" || type == "Pants")
+                {
+                    return type;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid.");
+                }
 
-				if (price >= 0)
-				{
-					return price;
-				}
-				Console.WriteLine("Ivalid.");
-			}
-		}
+            }
+        }
 
-		public string AskManufacturer()
-		{
-			Console.Write("Manufacturer: ");
-			return Console.ReadLine().Trim();
-		}
 
-		public string AskReference()
-		{
-			Console.Write("Reference: ");
-			return Console.ReadLine().Trim();
-		}
+        public double AskPrice()
+        {
+            while (true)
+            {
+                Console.Write("Price (€): ");
+                string input = Console.ReadLine().Trim();
 
-		public string AskSizeShirt()
-		{
-			Console.Write("Size (S/M/L/XL/XXL): ");
-			return Console.ReadLine().ToUpper().Trim();
-		}
+                try
+                {
+                    double price = double.Parse(input);
 
-		public string AskTypeSleeve()
-		{
-			while (true)
-			{
-				Console.Write("Type of Sleeve (Long/Short): ");
-				string sleeve = Console.ReadLine().Trim();
-				if (sleeve = "Long" or sleeve = "Short")
-				{
-					return sleeve;
-				}
-		
-			}
-		}
+                    if (price >= 0)
+                    {
 
-		public string AskTypeShirt()
-		{
-			Console.Write("Type of Shirt (ex: Football Shirt, Polo): ");
-			return Console.ReadLine().Trim();
-		}
+                        return price;
 
-		public string AskTeam()
-		{
-			Console.Write("Team (ex: SL Benfica, SC Braga, Vieira SC): ");
-			return Console.ReadLine().Trim();
-		}
+                    }
 
-		public string AskShirtClass()
-		{
-			Console.Write("Class (Home/Away/Third): ");
-			return Console.ReadLine().Trim();
-		}
+                }
+                catch
+                {
+                    Console.WriteLine("Invalid.");
+                }
+            }
+        }
 
-		public int AskYear()
-		{
-			while (true)
-			{
-				Console.Write("Year: ");
-				if (year > 0)
-				{
-					return year;
-				}
-				Console.WriteLine("Invalid.");
-			}
-		}
 
-		public string AskColorPolo()
-		{
-			Console.Write("Color: ");
-			return Console.ReadLine().Trim();
-		}
+        public string AskManufacturer()
+        {
+            Console.WriteLine("Manufacturer: ");
+            string manufacturer = Console.ReadLine().Trim();
+            return manufacturer;
+        }
 
-		public string AskButton()
-		{
-			while (true)
-			{
-				Console.Write("Has buttons? (Yes/No): ");
-				string answ = Console.ReadLine().Trim();
-				if (answ="Yes" or answ = "No")
-				{
-					return answ;
-				}
-			}
-		}
+        public string AskReference()
+        {
+            Console.WriteLine("Reference: ");
+            string reference = Console.ReadLine().Trim();
+            return reference;
 
-		public int AskSizePants()
-		{
-			while (true)
-			{
-				Console.Write("Size (number): ");
-				if (size > 0)
-				{
-					return tam;
-				}
-				Console.WriteLine("Invalid.");
-			}
-		}
 
-		public string AskModelPants()
-		{
-			Console.Write("Model (ex: Straight, Slim): ");
-			return Console.ReadLine().Trim();
-		}
+        }
 
-		public string AskColorPants()
-		{
-			Console.Write("Colorr: ");
-			return Console.ReadLine().Trim();
-		}
+        public string AskSizeShirt()
+        {
+            Console.WriteLine("Size (S/M/L/XL/XXL): ");
+            string size = Console.ReadLine().Trim();
 
-		public string AskTypePants()
-		{
-			Console.Write("Type (ex: Jeans, Chino): ");
-			return Console.ReadLine().Trim();
-		}
-	}
+            try
+            {
+
+                if (size != "S" && size != "M" && size != "L" && size != "XL" && size != "XXL")
+                {
+                    Console.WriteLine("Invalid.");
+                }
+
+                return size;
+            }
+            catch
+            {
+                Console.WriteLine("Invalid.");
+            }
+        }
+
+        public string AskTypeSleeve()
+        {
+            while (true)
+            {
+                Console.Write("Type of Sleeve (Long/Short): ");
+                string sleeve = Console.ReadLine().Trim();
+                if (sleeve = "Long" || sleeve = "Short")
+
+                {
+                    return sleeve;
+                }
+
+                Console.WriteLine("Invalid.");
+            }
+        }
+
+        public string AskTeam()
+        {
+            Console.Write("Team (ex: SL Benfica, SC Braga, Vieira SC): ");
+            string team = Console.WriteLine().Trim();
+            return team;
+        }
+
+        public string AskShirtClass()
+        {
+            Console.Write("Class (Home/Away/Third): ");
+            string shirtClass = Console.ReadLine().Trim();
+            
+            if (shirtClass != "Home" || shirtClass != "Away" || shirtClass != "Third")
+            {
+                Console.WriteLine("Invalid.");
+            }
+
+            return shirtClass;
+        }
+
+        public int AskYear()
+        {
+            while (true)
+            {
+                Console.Write("Year: ");
+                string input = Console.ReadLine();
+
+                try
+                {
+                    int year = int.Parse(input);
+
+                    if (year >= 1900)
+                        return year;
+                }
+                catch
+                {
+                    Console.WriteLine("Invalid.");
+                }
+            }
+        }
+
+
+        public string AskColorPolo()
+        {
+            Console.WriteLine("Color: ");
+            string color = Console.ReadLine().Trim();
+            return color;
+        }
+
+        public string AskButton()
+        {
+            while (true)
+            {
+                Console.WriteLine("Has buttons? (Yes/No): ");
+                string answer = Console.ReadLine().Trim();
+
+                if (answer == "Yes" || answer == "No" ||
+                    answer == "yes" || answer == "no")
+                {
+                    return answer;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input.");
+                }
+            }
+        }
+
+
+        public int AskSizePants()
+        {
+            while (true)
+            {
+                Console.Write("Pants size (number): ");
+                string input = Console.ReadLine();
+
+                try
+                {
+                    int sizep = int.Parse(input);
+
+                    if (sizep > 31)
+                    {
+                        return sizep;
+                    }
+                        
+                }
+                catch
+                {
+                    Console.WriteLine("Invalid input.");
+                }
+            }
+        }
+
+
+        public string AskModelPants()
+        {
+            Console.Write("Model (ex: Straight, Slim): ");
+            string model = Console.ReadLine().Trim();
+            return model;
+        }
+
+        public string AskColorPants()
+        {
+            Console.Write("Color: ");
+            string color = Console.Readline().Trim();
+            return color;
+        }
+
+    }
 }

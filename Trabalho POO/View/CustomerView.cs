@@ -1,5 +1,5 @@
 ﻿/*
-*	<copyright file="CustomerView.cs" company="IPCA">
+*	<copyright filecust"CustomerView.cs" company="IPCA">
 *		Copyright (c) 2025 All Rights Reserved
 *	</copyright>
 * 	<author>joser</author>
@@ -40,55 +40,84 @@ namespace Trabalho_POO.View
 
         public string AskName()
         {
-            Console.WriteLine("First and Last Name: ");
-            Console.ReadLine(); //first space last 
+            Console.Write("First and Last Name: ");
+            string name = Console.ReadLine()?.Trim() ?? "";
             return name;
         }
 
         public DateTime AskBirthDate()
         {
-            DateTime birthDate;
-            do
+            while (true)
             {
                 Console.Write("Birth date (dd/mm/yyyy): ");
-            } while (!DateTime.TryParse(Console.ReadLine(), out birthDate));//out saves the value in birthDate
-
-            return birthDate;
-
+                string input = Console.ReadLine();
+                try
+                {
+                    DateTime date = DateTime.Parse(input);
+                    return date;
+                }
+                catch
+                {
+                    Console.WriteLine("Invalid date. Again pls.");
+                }
+            }
         }
+
 
         public int AskNIF()
         {
             while (true)
             {
                 Console.Write("NIF (9 digits): ");
-                string input = Console.ReadLine().Trim();
-                if (input.ToString().Length == 9)
+                string input = Console.ReadLine(); //readline only reads strings
+
+                if (input.Length != 9)
                 {
+                    Console.WriteLine("9 digits.");
+                    continue;
+                }
+
+                try
+                {
+                    int nif = int.Parse(input);
                     return nif;
                 }
-                    
-                Console.WriteLine("Must have 9 digits.");
+                catch
+                {
+                    Console.WriteLine("only numbers.");
+                }
             }
         }
+
 
         public int AskPhone()
         {
             while (true)
             {
-                Console.Write("Phone (9 digits): ");
-                string input = Console.ReadLine().Trim();
-                if (input.ToString().Length == 9)
+                Console.Write("Phone number (9 digits): ");
+                string input = Console.ReadLine();
+
+                if (input.Length != 9)
                 {
+                    Console.WriteLine("9 digits.");
+                    continue;
+                }
+
+                try
+                {
+                    int phone = int.Parse(input);
                     return phone;
                 }
-                Console.WriteLine("Must have 9 digits.");
+                catch
+                {
+                    Console.WriteLine("Only digits.");
+                }
             }
         }
 
         public void HowManySpent(double total)
         {
-            Console.WriteLine($"Total spent: {total}€");
+            Console.WriteLine($"Total spent: {total:F2}€");
         }
     }
 }

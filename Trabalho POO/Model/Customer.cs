@@ -19,7 +19,7 @@ namespace Trabalho_POO
     /// <remarks></remarks>
     /// <example></example>
     [Serializable]
-    public class Customer 
+    public class Customer
     {
         /// <summary>
         /// Creating empty attributes
@@ -59,10 +59,10 @@ namespace Trabalho_POO
         /// <param name="p">Phone number of the client.</param>
         public Customer(string nm, DateTime bD, int n, int p)
         {
-                name = nm;
-                bornDate = bD;
-                nif = n;
-                phone = p;
+            name = nm;
+            bornDate = bD;
+            nif = n;
+            phone = p;
         }
 
         #endregion
@@ -73,34 +73,32 @@ namespace Trabalho_POO
         #region Properties
 
         public string Name
-            {
-                get { return name; }
-                set { name = value; }
-            }
+        {
+            get { return name; }
+            set { name = value; }
+        }
 
-            public DateTime BornDate
-            {
-                get { return bornDate; }
-                set { bornDate = value; }
-            }
+        public DateTime BornDate
+        {
+            get { return bornDate; }
+            set { bornDate = value; }
+        }
 
-            public int Nif
-            {
-                get { return nif; }
-                set { nif = value; }
-            }
+        public int Nif
+        {
+            get { return nif; }
+            set { nif = value; }
+        }
 
-            public int Phone
-            {
-                get { return phone; }
-                set { phone = value; }
-            }
-
-        #endregion
+        public int Phone
+        {
+            get { return phone; }
+            set { phone = value; }
+        }
 
         #endregion
 
-
+        #endregion
 
     }
 }

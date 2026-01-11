@@ -58,7 +58,7 @@ namespace Trabalho_POO
         /// <param name="c">Class of the shirt. (Home/Away/Third)</param>
         /// <param name="y">Year/Season</param>
         public FutShirt(string size, double price, string typeSleeve, string type, string manufacturer,
-            string reference,string t, string c, int y)
+            string reference, string t, string c, int y)
             : base(size, price, typeSleeve, manufacturer, reference, type) // Indicates who came from base
         {
             team = t;

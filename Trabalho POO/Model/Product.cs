@@ -39,7 +39,7 @@ namespace Trabalho_POO
         /// Default constructor. Empty values.
         /// </summary>
         public Product()
-        {  
+        {
             manufacturer = "";
             reference = "";
             price = 0.0f;

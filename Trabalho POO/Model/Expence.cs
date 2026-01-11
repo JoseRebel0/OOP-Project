@@ -1,10 +1,10 @@
 ﻿/*
-*	<copyright file="Expence.cs" company="IPCA">
-*		Copyright (c) 2025 All Rights Reserved
+*   < copyright file = "Expence.cs" company = "IPCA" >
+*Copyright(c) 2025 All Rights Reserved
 *	</copyright>
 * 	<author>joser</author>
-*   <date>16/12/2025 22:25:53</date>
-*	<description></description>
+*   <date>16/12/2025 22:25:53 </ date >
+*   < description ></ description >
 **/
 using System;
 using System.Collections.Generic;
@@ -42,7 +42,14 @@ namespace Trabalho_POO.Model
 
         public double GetTotalSpent() //Total spent by the customer
         {
-            return sales.Sum(s => s.GetTotal());
+            double total = 0;
+
+            foreach (Sale s in sales)
+            {
+                total += s.GetTotal();
+            }
+
+            return total;
         }
 
         #endregion

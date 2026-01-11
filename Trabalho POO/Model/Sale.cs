@@ -26,7 +26,7 @@ namespace Trabalho_POO.Model
 
         string customerNIF;
         DateTime saleDate;
-        List<Product> products; 
+        List<Product> products; //products list
 
         #endregion
 
@@ -77,7 +77,14 @@ namespace Trabalho_POO.Model
         #region Other Methods
         public double GetTotal() //Price of the sale
         {
-            return products.Sum(p => p.Price);
+            double total = 0;
+
+            foreach (Product p in products)
+            {
+                total += p.Price;
+            }
+
+            return total;
         }
 
         #endregion

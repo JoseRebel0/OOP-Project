@@ -21,23 +21,22 @@ namespace Trabalho_POO.View
         string AskReference();
 
 
-        string AskSizeShrit();
+        string AskSizeShirt();
         string AskTypeSleeve();
-        string AskTypeShirt();
-
         
+
+
         string AskTeam();
         string AskShirtClass(); // Home/Away/Third
         int AskYear();
 
-      
+
         string AskColorPolo();
         string AskButton(); // Yes/No
 
-   
+
         int AskSizePants();
         string AskModel();
         string AskColorPants();
-        string AskTypePants();
     }
 }

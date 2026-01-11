@@ -1,10 +1,10 @@
 /*
-- <copyright file="ProductController.cs" company="IPCA">
-- Copyright (c) 2025 All Rights Reserved
-- </copyright>
-- <author>joser</author>
-- <date>16/12/2025 23:21:54</date>
-- <description></description>
+*   < copyright file = "ProductController.cs" company = "IPCA" >
+*   Copyright(c) 2025 All Rights Reserved
+*	</copyright>
+* 	<author>joser</author>
+*   <date>16/12/2025 23:21:54 </ date >
+*   < description ></ description >
 **/
 using System;
 using System.Collections.Generic;
@@ -20,7 +20,7 @@ namespace Trabalho_POO.Controller
 
         public ProductController(List<Product> productsList, IProductView productView)
         {
-            produtos = productsList;
+            products = productsList;
             view = productView;
         }
 
@@ -30,21 +30,26 @@ namespace Trabalho_POO.Controller
             string manufacturer = view.AskManufacturer();
             string reference = view.AskReference();
 
-            int type = view.AskType();
+            Console.WriteLine("Select Product Type:");
+            Console.WriteLine("-> Jersey");
+            Console.WriteLine("-> Polo");
+            Console.WriteLine("-> Pants");
+            string type = Console.ReadLine();
+
             Product newProduct;
 
             switch (type)
             {
-                case 1:
-                    newProduct = CreateFutShirt(preco, fabricante, referencia);
+                case "Jersey" || "jersey" :
+                    newProduct = CreateFutShirt(price, manufacturer, reference, type);
                     break;
 
-                case 2:
-                    newProduct = CreatePolo(preco, fabricante, referencia);
+                case "Polo" || "polo":
+                    newProduct = CreatePolo(price, manufacturer, reference, type);
                     break;
 
-                case 3:
-                    newProduct = CreatePants(preco, fabricante, referencia);
+                case "Pants" || "pants":
+                    newProduct = CreatePants(price, manufacturer, reference, type);
                     break;
 
                 default:
@@ -63,10 +68,10 @@ namespace Trabalho_POO.Controller
         {
             string size = view.AskSizeShirt();
             string sleeve = view.AskTypeSleeve();
-            string type = view.AskTypeShirt();
             string team = view.AskTeam();
             string shirtClass = view.AskShirtClass();
             int year = view.AskYear();
+            string type = "Football Shirt";
 
             return new FutShirt(size, price, sleeve, type, manufacturer, reference, team, shirtClass, year);
         }
@@ -75,9 +80,9 @@ namespace Trabalho_POO.Controller
         {
             string size = view.AskSizeShirt();
             string sleeve = view.AskTypeSleeve();
-            string type = view.AskTypeShirt();
             string color = view.AskColorPolo();
             string button = view.AskButton();
+            string type = "Polo";
 
             return new Polo(size, price, sleeve, type, manufacturer, reference, color, button);
         }
@@ -86,10 +91,9 @@ namespace Trabalho_POO.Controller
         {
             int size = view.AskSizePants();
             string model = view.AskModel();
-            string type = view.AskTypePants();
             string color = view.AskColorPants();
 
-            return new Pants(size, model, type, price, manufacturer, reference, color);
+            return new Pants(size, model, price, manufacturer, reference, color);
         }
     }
 }

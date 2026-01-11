@@ -10,11 +10,11 @@ namespace Trabalho_POO
     {
         static void Main(string[] args)
         {
+
             List<Customer> customers = new List<Customer>();
             List<Product> products = new List<Product>();
             List<Sale> sales = new List<Sale>();
 
-            
             ICustomerView customerView = new CustomerView();
             IProductView productView = new ProductView();
             ISaleView saleView = new SaleView();
@@ -23,23 +23,40 @@ namespace Trabalho_POO
             ProductController productController = new ProductController(products, productView);
             SaleController saleController = new SaleController(sales, customers, products, saleView);
 
-            customers.Add(new Customer("José Rebelo", new DateTime(2005, 3, 24), 123456789, 924041637));
-
-            FutShirt fs = new FutShirt("S", 120.00, "Long", "Football Shirt", "Nike", "A3hF1l", "Portugal", "Home", 2004);
-            products.Add(fs);
-
-            Polo polo = new Polo("L", 12.00, "Short", "Polo", "Lacoste", "sagydg82", "Red", "Yes");
-            products.Add(polo);
-
-            Pants pants = new Pants(38, "Straight", "Jeans", 29.95, "Echo", "AjuFh21", "Black");
-            products.Add(pants);
-
-
+            Console.WriteLine("Create and list customers");
+            customerController.AddCustomer();  
             customerController.ShowAllCustomers();
 
-            Console.WriteLine("\nPress Any key to leave...");
-            Console.ReadKey();
+            Console.WriteLine("\nCreate products");
+            productController.AddProduct();  
+            productController.AddProduct();   
 
+            Console.WriteLine("\nRegister a sale");
+            saleController.RegisterSale(); 
+
+            Console.WriteLine("\nList all sales");
+            saleController.ListSales();
+
+            Console.WriteLine("\nTotal spent by customer");
+            if (customers.Count > 0 && sales.Count > 0)
+            {
+                Expence expence = new Expence(customers[0]);
+                foreach (var sale in sales)
+                {
+                    if (sale.CustomerNIF == customers[0].Nif.ToString())
+                        expence.Sales.Add(sale);
+                }
+
+                ExpenceController expenceController = new ExpenceController(expence, customerView);
+                expenceController.ShowTotalSpent();
+            }
+            else
+            {
+                Console.WriteLine("No customers or sales.");
+            }
+
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
         }
     }
 }

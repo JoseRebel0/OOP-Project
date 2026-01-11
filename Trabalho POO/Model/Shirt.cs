@@ -18,7 +18,7 @@ namespace Trabalho_POO
     /// <remarks></remarks>
     /// <example></example>
     [Serializable]
-    public class Shirt: Product
+    public class Shirt : Product
     {
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace Trabalho_POO
         /// <summary>
         /// Default constructor. Empty values.
         /// </summary>
-        public Shirt() 
+        public Shirt()
         {
             size = "";
             typeSleeve = "";
@@ -54,10 +54,10 @@ namespace Trabalho_POO
         /// <param name="reference">Shirt reference.</param>
         /// <param name="tS">Type of sleeve. (Long/Short)</param>
         // Receiving parameters from the main
-         public Shirt(string s, double price, string tS, string manufacturer, string reference, string t)
-            : base(price, manufacturer, reference)
+        public Shirt(string s, double price, string tS, string manufacturer, string reference, string t)
+           : base(price, manufacturer, reference)
         {
-            
+
             size = s;
             typeSleeve = tS;
             type = t;

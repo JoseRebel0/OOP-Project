@@ -22,7 +22,7 @@ namespace Trabalho_POO
     {
         #region Attributes
 
-        string model, color, type;
+        string model, color;
         int size;
 
         #endregion
@@ -36,16 +36,14 @@ namespace Trabalho_POO
             size = 0;
             model = "";
             color = "";
-            type = "";
         }
 
-        public Pants(int s, string m, string t, double price, string manufacturer, string reference, string c)
+        public Pants(int s, string m, double price, string manufacturer, string reference, string c)
            : base(price, manufacturer, reference)
         {
             size = s;
             model = m;
             color = c;
-            type = t;
         }
 
         #endregion
@@ -68,12 +66,6 @@ namespace Trabalho_POO
         {
             get { return color; }
             set { color = value; }
-        }
-
-        public string Type
-        {
-            get { return type; }
-            set { type = value; }
         }
 
         #endregion

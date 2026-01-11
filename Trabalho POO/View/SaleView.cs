@@ -34,7 +34,14 @@ namespace Trabalho_POO.View
             Customer customer = null;
             if (customers != null)
             {
-                customer = customers.Find(c => c.Nif.ToString() == sale.CustomerNIF);
+                foreach (Customer c in customers)
+                {
+                    if (c.Nif.ToString() == sale.CustomerNIF)
+                    {
+                        customer = c;
+                        break;
+                    }
+                }
             }
 
             string customerName;
@@ -59,10 +66,18 @@ namespace Trabalho_POO.View
             Console.WriteLine($"Total: {sale.GetTotal():F2}€\n");
         }
 
-        public string AskNIFCustomer()
+        public int AskNIFCustomer()
         {
             Console.Write("Customer NIF: ");
-            return Console.ReadLine().Trim();
+            string input = Console.ReadLine().Trim();
+
+            int nif = int.Parse(input);
+            if(nif.Length != 9)
+            {
+                Console.WriteLine("9 digits.");
+                return null;
+            }
+            return nif;
         }
 
         public string AskProductRef(List<Product> products)
@@ -80,10 +95,14 @@ namespace Trabalho_POO.View
                 if (string.IsNullOrEmpty(refInput))
                     return null; //end input (nothing on it)
 
-                if (products = refInput)
+                foreach (var p in products)
                 {
-                    return refInput;
+                    if (p.Reference.ToLower() == refInput.ToLower())
+                    {
+                        return refInput;
+                    }
                 }
+
 
                 Console.WriteLine("Invalid. Try again.");
 

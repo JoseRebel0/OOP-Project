@@ -14,7 +14,7 @@ using Trabalho_POO.View;
 
 namespace Trabalho_POO.Controller
 {
-    public class CustomerController
+    public clclass CustomerController
     {
         private List<Customer> customers;
         private ICustomerView view;
@@ -34,7 +34,7 @@ namespace Trabalho_POO.Controller
             int phone = view.AskPhone();
 
             Customer newCustomer = new Customer(name, birthDate, nif, phone);
-            clientes.Add(newCustomer); //add to the list
+            customers.Add(newCustomer); //add to the list
 
             Console.WriteLine("Customer added.");
         }
@@ -43,33 +43,6 @@ namespace Trabalho_POO.Controller
         public void ShowAllCustomers()
         {
             view.ShowCustomers(customers);
-        }
-
-        // Mostrar total gasto (usando o Expence)
-        public void MostrarTotalGastoDeCliente(List<Sale> vendas)
-        {
-            view.MostrarMensagem("\nConsulta de total gasto");
-            Console.Write("Insira o NIF do cliente: ");
-            if (!int.TryParse(Console.ReadLine(), out int nif))
-            {
-                view.MostrarMensagem("NIF inválido.");
-                return;
-            }
-
-            Customer cliente = clientes.FirstOrDefault(c => c.Nif == nif);
-            if (cliente == null)
-            {
-                view.MostrarMensagem("Cliente não encontrado.");
-                return;
-            }
-
-            // Calcular total das vendas desse cliente
-            double total = vendas
-                .Where(v => v.CustomerNIF == nif.ToString())
-                .Sum(v => v.GetTotal());
-
-            view.MostrarMensagem($"Cliente: {cliente.Name}");
-            view.MostrarTotalGasto(total);
         }
     }
 }
