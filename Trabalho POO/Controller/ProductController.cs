@@ -1,10 +1,10 @@
 /*
-*	<copyright file="ProductController.cs" company="IPCA">
-*		Copyright (c) 2025 All Rights Reserved
-*	</copyright>
-* 	<author>joser</author>
-*   <date>16/12/2025 23:21:54</date>
-*	<description></description>
+- <copyright file="ProductController.cs" company="IPCA">
+- Copyright (c) 2025 All Rights Reserved
+- </copyright>
+- <author>joser</author>
+- <date>16/12/2025 23:21:54</date>
+- <description></description>
 **/
 using System;
 using System.Collections.Generic;
