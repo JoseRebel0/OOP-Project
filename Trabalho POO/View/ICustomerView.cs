@@ -7,10 +7,11 @@
 *	<description></description>
 **/
 using System;
+using Trabalho_POO.Model;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace Trabalho_POO.View
 {

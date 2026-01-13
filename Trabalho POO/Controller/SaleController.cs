@@ -9,7 +9,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Trabalho_POO.Model;
 using Trabalho_POO.View;
 

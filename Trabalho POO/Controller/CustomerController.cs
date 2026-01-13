@@ -8,13 +8,12 @@
 **/
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Trabalho_POO.Model;
 using Trabalho_POO.View;
 
 namespace Trabalho_POO.Controller
 {
-    public clclass CustomerController
+    public class CustomerController
     {
         private List<Customer> customers;
         private ICustomerView view;

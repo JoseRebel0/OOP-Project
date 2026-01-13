@@ -1,98 +1,98 @@
-﻿/*
-*	<copyright file="Shirt.cs" company="IPCA">
-*		Copyright (c) 2025 All Rights Reserved
-*	</copyright>
-* 	<author>joser</author>
-*   <date>30/10/2025 20:30:41</date>
-*	<description></description>
-**/
-using System;
+﻿    /*
+    *	<copyright file="Shirt.cs" company="IPCA">
+    *		Copyright (c) 2025 All Rights Reserved
+    *	</copyright>
+    * 	<author>joser</author>
+    *   <date>30/10/2025 20:30:41</date>
+    *	<description></description>
+    **/
+    using System;
 
-namespace Trabalho_POO
-{
-    /// <summary>
-    /// Purpose:
-    /// Created by: joser
-    /// Created on: 30/10/2025 20:30:41
-    /// </summary>
-    /// <remarks></remarks>
-    /// <example></example>
-    [Serializable]
-    public class Shirt : Product
+    namespace Trabalho_POO
     {
-
         /// <summary>
-        /// Creating empty attributes
+        /// Purpose:
+        /// Created by: joser
+        /// Created on: 30/10/2025 20:30:41
         /// </summary>
-        #region Attributes 
-
-        string size, typeSleeve, type;
-
-        #endregion
-
-
-        #region Methods
-
-        #region Constructors
-
-        /// <summary>
-        /// Default constructor. Empty values.
-        /// </summary>
-        public Shirt()
-        {
-            size = "";
-            typeSleeve = "";
-            type = "";
-
-        }
-        /// <summary>
-        /// Parameterized constructor.
-        /// </summary>
-        /// <param name="s">Shirt size. (S/M/L/XL/XXL)</param>
-        /// <param name="price">Shirt price. (€)</param>
-        /// <param name="manufacturer">Shirt manufacturer.</param>
-        /// <param name="reference">Shirt reference.</param>
-        /// <param name="tS">Type of sleeve. (Long/Short)</param>
-        // Receiving parameters from the main
-        public Shirt(string s, double price, string tS, string manufacturer, string reference, string t)
-           : base(price, manufacturer, reference)
+        /// <remarks></remarks>
+        /// <example></example>
+        [Serializable]
+        public class Shirt : Product
         {
 
-            size = s;
-            typeSleeve = tS;
-            type = t;
+            /// <summary>
+            /// Creating empty attributes
+            /// </summary>
+            #region Attributes 
+
+            string size, typeSleeve, type;
+
+            #endregion
+
+
+            #region Methods
+
+            #region Constructors
+
+            /// <summary>
+            /// Default constructor. Empty values.
+            /// </summary>
+            public Shirt()
+            {
+                size = "";
+                typeSleeve = "";
+                type = "";
+
+            }
+            /// <summary>
+            /// Parameterized constructor.
+            /// </summary>
+            /// <param name="s">Shirt size. (S/M/L/XL/XXL)</param>
+            /// <param name="price">Shirt price. (€)</param>
+            /// <param name="manufacturer">Shirt manufacturer.</param>
+            /// <param name="reference">Shirt reference.</param>
+            /// <param name="tS">Type of sleeve. (Long/Short)</param>
+            // Receiving parameters from the main
+            public Shirt(string s, double price, string tS, string manufacturer, string reference, string t)
+               : base(price, manufacturer, reference)
+            {
+
+                size = s;
+                typeSleeve = tS;
+                type = t;
+            }
+
+
+            #endregion
+
+            /// <summary>
+            /// Gets or sets the properties of the class.
+            /// </summary>
+            #region Properties
+
+            // The way they should be shown
+            public string Size
+            {
+                get { return size.ToUpper(); }
+                set { size = value; }
+            }
+
+            public string TypeSleeve
+            {
+                get { return typeSleeve; }
+                set { typeSleeve = value; }
+            }
+
+            public string Type
+            {
+                get { return type; }
+                set { type = value; }
+            }
+
+            #endregion
+
+            #endregion
+
         }
-
-
-        #endregion
-
-        /// <summary>
-        /// Gets or sets the properties of the class.
-        /// </summary>
-        #region Properties
-
-        // The way they should be shown
-        public string Size
-        {
-            get { return size.ToUpper(); }
-            set { size = value; }
-        }
-
-        public string TypeSleeve
-        {
-            get { return typeSleeve; }
-            set { typeSleeve = value; }
-        }
-
-        public string Type
-        {
-            get { return type; }
-            set { type = value; }
-        }
-
-        #endregion
-
-        #endregion
-
     }
-}

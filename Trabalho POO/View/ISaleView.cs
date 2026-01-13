@@ -6,8 +6,11 @@
 *   <date>16/12/2025 16:50:34</date>
 *	<description></description>
 **/
-using System.Collections.Generic;
+using System;
 using Trabalho_POO.Model;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Trabalho_POO.View
 {

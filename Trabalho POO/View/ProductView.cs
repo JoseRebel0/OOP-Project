@@ -7,8 +7,11 @@
 *	<description></description>
 **/
 using System;
-using System.Collections.Generic;
 using Trabalho_POO.Model;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+
 
 namespace Trabalho_POO.View
 {
@@ -109,7 +112,7 @@ namespace Trabalho_POO.View
             {
                 Console.Write("Type of Sleeve (Long/Short): ");
                 string sleeve = Console.ReadLine().Trim();
-                if (sleeve = "Long" || sleeve = "Short")
+                if(sleeve == "Long" || sleeve == "Short")
 
                 {
                     return sleeve;
@@ -121,8 +124,8 @@ namespace Trabalho_POO.View
 
         public string AskTeam()
         {
-            Console.Write("Team (ex: SL Benfica, SC Braga, Vieira SC): ");
-            string team = Console.WriteLine().Trim();
+            Console.WriteLine("Team (ex: SL Benfica, SC Braga, Vieira SC): ");
+            string team = Console.ReadLine().Trim();
             return team;
         }
 
@@ -130,8 +133,8 @@ namespace Trabalho_POO.View
         {
             Console.Write("Class (Home/Away/Third): ");
             string shirtClass = Console.ReadLine().Trim();
-            
-            if (shirtClass != "Home" || shirtClass != "Away" || shirtClass != "Third")
+
+            if (shirtClass != "Home" && shirtClass != "Away" && shirtClass != "Third")
             {
                 Console.WriteLine("Invalid.");
             }
@@ -143,7 +146,7 @@ namespace Trabalho_POO.View
         {
             while (true)
             {
-                Console.Write("Year: ");
+                Console.WriteLine("Year: ");
                 string input = Console.ReadLine();
 
                 try

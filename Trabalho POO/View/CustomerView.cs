@@ -9,6 +9,8 @@
 using System;
 using Trabalho_POO.Model;
 using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
 
 
 namespace Trabalho_POO.View
@@ -113,11 +115,6 @@ namespace Trabalho_POO.View
                     Console.WriteLine("Only digits.");
                 }
             }
-        }
-
-        public void HowManySpent(double total)
-        {
-            Console.WriteLine($"Total spent: {total:F2}€");
         }
     }
 }
