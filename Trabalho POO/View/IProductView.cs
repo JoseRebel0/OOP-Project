@@ -41,6 +41,7 @@ namespace Trabalho_POO.View
         int AskSizePants();
         string AskModelPants();
         string AskColorPants();
+        void ShowProducts(List<Product> products);
 
     }
 }

@@ -11,12 +11,12 @@ namespace Trabalho_POO
         static void Main(string[] args)
         {
 
-            string file = @"data.bin";
+            string fileName = @"data.bin";
 
             Data data = new Data();
 
 
-            Data loadedData = Data.Load(file);
+            Data loadedData = Data.Load(fileName);
             if (loadedData != null)
                 data = loadedData;
 
@@ -45,6 +45,8 @@ namespace Trabalho_POO
 
             Console.WriteLine("\nList all sales");
             saleController.ListSales();
+
+            data.Save(fileName);
 
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();

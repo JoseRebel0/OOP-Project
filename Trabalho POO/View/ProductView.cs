@@ -178,8 +178,7 @@ namespace Trabalho_POO.View
                 Console.WriteLine("Has buttons? (Yes/No): ");
                 string answer = Console.ReadLine().Trim();
 
-                if (answer == "Yes" || answer == "No" ||
-                    answer == "yes" || answer == "no")
+                if (answer == "Yes" || answer == "No" || answer == "yes" || answer == "no")
                 {
                     return answer;
                 }
@@ -228,6 +227,23 @@ namespace Trabalho_POO.View
             Console.Write("Color: ");
             string color = Console.Readline().Trim();
             return color;
+        }
+
+
+        public void ShowProducts(List<Product> products)
+        {
+            if (products.Count == 0)
+            {
+                Console.WriteLine("No Products.");
+                return;
+            }
+
+            Console.WriteLine("\n Products List");
+            foreach (var p in products)
+            {
+                Console.WriteLine($"Reference: {p.Reference} \n Price: {p.Price} \n Manufacturer: {p.Manufacturer}");
+              
+            }
         }
 
     }

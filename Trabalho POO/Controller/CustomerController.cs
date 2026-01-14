@@ -15,8 +15,8 @@ namespace Trabalho_POO.Controller
 {
     public class CustomerController
     {
-        private List<Customer> customers;
-        private ICustomerView view;
+         List<Customer> customers;
+         ICustomerView view;
 
         public CustomerController(List<Customer> customerList, ICustomerView customerView)
         {

@@ -12,10 +12,9 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections.Generic;
 using Trabalho_POO.Controller;
-using Trabalho_POO.Model;
 using Trabalho_POO.View;
 
-namespace Trabalho_POO
+namespace Trabalho_POO.Model
 {
     [Serializable]
     public class Data
@@ -25,7 +24,7 @@ namespace Trabalho_POO
         public List<Customer> Customers;
         public List<Product> Products;
         public List<Sale> Sales;
-
+       
         #endregion
 
         #region Constructors
@@ -57,9 +56,11 @@ namespace Trabalho_POO
                 fs.Close();
 
                 return true;
+                
             }
-            catch
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return false;
             }
         }
@@ -70,7 +71,9 @@ namespace Trabalho_POO
         public static Data Load(string fileName)
         {
             if (!File.Exists(fileName))
+            {
                 return null;
+            }
 
             try
             {
@@ -82,22 +85,13 @@ namespace Trabalho_POO
 
                 return data;
             }
-            catch
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return null;
             }
-        }
 
-        /// <summary>
-        /// Clear all lists
-        /// </summary>
-        public void Clear()
-        {
-            Customers.Clear();
-            Products.Clear();
-            Sales.Clear();
         }
-
         #endregion
     }
 }

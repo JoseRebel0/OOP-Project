@@ -15,8 +15,8 @@ namespace Trabalho_POO.Controller
 {
     public class ProductController
     {
-        private List<Product> products;
-        private IProductView view;
+         List<Product> products;
+         IProductView view;
 
         public ProductController(List<Product> productsList, IProductView productView)
         {
@@ -64,7 +64,7 @@ namespace Trabalho_POO.Controller
             }
         }
 
-        private FutShirt CreateFutShirt(double price, string manufacturer, string reference)
+        FutShirt CreateFutShirt(double price, string manufacturer, string reference)
         {
             string size = view.AskSizeShirt();
             string sleeve = view.AskTypeSleeve();
@@ -76,7 +76,7 @@ namespace Trabalho_POO.Controller
             return new FutShirt(size, price, sleeve, type, manufacturer, reference, team, shirtClass, year);
         }
 
-        private Polo CreatePolo(double price, string manufacturer, string reference)
+        Polo CreatePolo(double price, string manufacturer, string reference)
         {
             string size = view.AskSizeShirt();
             string sleeve = view.AskTypeSleeve();
@@ -87,13 +87,19 @@ namespace Trabalho_POO.Controller
             return new Polo(size, price, sleeve, type, manufacturer, reference, color, button);
         }
 
-        private Pants CreatePants(double price, string manufacturer, string reference)
+        Pants CreatePants(double price, string manufacturer, string reference)
         {
             int size = view.AskSizePants();
             string model = view.AskModel();
             string color = view.AskColorPants();
 
             return new Pants(size, model, price, manufacturer, reference, color);
+        }
+
+
+        public void ShowProducts()
+        {
+            view.ShowProducts(products);
         }
     }
 }

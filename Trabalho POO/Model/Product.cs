@@ -7,7 +7,7 @@
 *	<description></description>
 **/
 using System;
-using System.Security.Policy;
+using System.Diagnostics;
 
 namespace Trabalho_POO
 {

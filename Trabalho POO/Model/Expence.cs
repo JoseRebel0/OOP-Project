@@ -21,8 +21,8 @@ namespace Trabalho_POO.Model
     [Serializable]
     public class Expence
     {
-        private Customer customer;
-        private List<Sale> sales; //Sales list
+         Customer customer;
+         List<Sale> sales; //Sales list
 
 
         public Expence(Customer c) //Indicates that c is a Customer

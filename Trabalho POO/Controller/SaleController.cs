@@ -16,10 +16,10 @@ namespace Trabalho_POO.Controller
 {
     public class SaleController
     {
-        private List<Sale> sales;
-        private List<Customer> customers;
-        private List<Product> products;
-        private ISaleView view;
+         List<Sale> sales;
+         List<Customer> customers;
+         List<Product> products;
+         ISaleView view;
 
         public SaleController(List<Sale> salesList, List<Customer> customersList,
                               List<Product> productsList, ISaleView saleView)
