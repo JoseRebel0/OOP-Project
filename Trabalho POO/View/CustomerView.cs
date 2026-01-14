@@ -34,7 +34,7 @@ namespace Trabalho_POO.View
             }
 
             Console.WriteLine("\n Customers List");
-            foreach (var c in customers)
+            foreach (Customer c in customers)
             {
                 Console.WriteLine($"NIF: {c.Nif} \n Name: {c.Name} \n BornDate: {c.BornDate:dd/MM/yyyy} \n Phone: {c.Phone}");
             }
@@ -43,7 +43,7 @@ namespace Trabalho_POO.View
         public string AskName()
         {
             Console.Write("First and Last Name: ");
-            string name = Console.ReadLine()?.Trim() ?? "";
+            string name = Console.ReadLine();
             return name;
         }
 
@@ -58,9 +58,9 @@ namespace Trabalho_POO.View
                     DateTime date = DateTime.Parse(input);
                     return date;
                 }
-                catch
+                catch (Exception ex)
                 {
-                    Console.WriteLine("Invalid date. Again pls.");
+                    Console.WriteLine(ex.Message);
                 }
             }
         }
@@ -84,9 +84,9 @@ namespace Trabalho_POO.View
                     int nif = int.Parse(input);
                     return nif;
                 }
-                catch
+                catch (Exception ex)
                 {
-                    Console.WriteLine("only numbers.");
+                    Console.WriteLine(ex.Message);
                 }
             }
         }
@@ -110,9 +110,9 @@ namespace Trabalho_POO.View
                     int phone = int.Parse(input);
                     return phone;
                 }
-                catch
+                catch (Exception ex)
                 {
-                    Console.WriteLine("Only digits.");
+                    Console.WriteLine(ex.Message);
                 }
             }
         }

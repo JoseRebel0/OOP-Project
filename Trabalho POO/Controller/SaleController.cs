@@ -21,8 +21,8 @@ namespace Trabalho_POO.Controller
          List<Product> products;
          ISaleView view;
 
-        public SaleController(List<Sale> salesList, List<Customer> customersList,
-                              List<Product> productsList, ISaleView saleView)
+        public SaleController(List<Sale> salesList, List<Customer> customersList, 
+            List<Product> productsList, ISaleView saleView)
         {
             sales = salesList;
             customers = customersList;
@@ -48,7 +48,18 @@ namespace Trabalho_POO.Controller
 
             string nif = view.AskNIFCustomer();
 
-            if (!customers.Exists(c => c.Nif.ToString() == nif))
+            bool found = false;
+
+            foreach (Customer c in customers)
+            {
+                if (c.Nif.ToString() == nif)
+                {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
             {
                 Console.WriteLine("Customer not found.");
                 return;
@@ -64,7 +75,7 @@ namespace Trabalho_POO.Controller
                     break;
 
                 Product selectedProduct = null;
-                foreach (Product p in products)
+                foreach (Product p in saleItems)
                 {
                     if (p.Reference == reference)
                     {

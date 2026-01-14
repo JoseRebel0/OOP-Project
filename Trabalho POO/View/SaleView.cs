@@ -26,7 +26,7 @@ namespace Trabalho_POO.View
             }
 
             Console.WriteLine("\n List of Sales");
-            foreach (var s in sales)
+            foreach (Sale s in sales)
             {
                 ShowSaleDetails(s, null, null);
             }
@@ -35,6 +35,7 @@ namespace Trabalho_POO.View
         public void ShowSaleDetails(Sale sale, List<Customer> customers, List<Product> products)
         {
             Customer customer = null;
+
             if (customers != null)
             {
                 foreach (Customer c in customers)
@@ -48,6 +49,7 @@ namespace Trabalho_POO.View
             }
 
             string customerName;
+
             if (customer != null)
             {
                 customerName = customer.Name;
@@ -57,12 +59,11 @@ namespace Trabalho_POO.View
                 customerName = sale.CustomerNIF;
             }
 
-            Console.WriteLine("Sale on " + sale.SaleDate.ToString("dd/MM/yyyy") +
-                " | Customer: " + customerName);
+            Console.WriteLine("Sale on " + sale.SaleDate.ToString("dd/MM/yyyy") +"Customer: " + customerName);
 
 
             Console.WriteLine("Products:");
-            foreach (var p in sale.Products)
+            foreach (Product p in sale.Products)
             {
                 Console.WriteLine($" - {p.Manufacturer} {p.Reference} - {p.Price:F2}€");
             }
@@ -93,16 +94,18 @@ namespace Trabalho_POO.View
             while (true) //Helps to return to loop until valid input
             {
                 Console.Write("Product Reference: ");
-                string refInput = Console.ReadLine().Trim();
+                string input = Console.ReadLine().Trim();
 
-                if (string.IsNullOrEmpty(refInput))
-                    return null; //end input (nothing on it)
-
-                foreach (var p in products)
+                if (string.IsNullOrEmpty(input))
                 {
-                    if (p.Reference.ToLower() == refInput.ToLower())
+                    return null; //end input (nothing on it)
+                }
+                    
+                foreach (Product p in products)
+                {
+                    if (p.Reference == input)
                     {
-                        return refInput;
+                        return input;
                     }
                 }
 

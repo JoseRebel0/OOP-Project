@@ -12,36 +12,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace Trabalho_POO.View
 {
     public class ProductView : IProductView
     {
-
-        public string AskType()
-        {
-            while (true)
-            {
-                Console.WriteLine("\nProduct Type:");
-                Console.WriteLine("-> Shirt");
-                Console.WriteLine("-> Pants");
-                Console.Write("Choose : ");
-
-                string type = Console.ReadLine().Trim();
-                
-                if (type == "Shirt" || type == "Pants")
-                {
-                    return type;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid.");
-                }
-
-            }
-        }
-
-
         public double AskPrice()
         {
             while (true)
@@ -61,9 +35,9 @@ namespace Trabalho_POO.View
                     }
 
                 }
-                catch
+                catch (Exception ex)
                 {
-                    Console.WriteLine("Invalid.");
+                    Console.WriteLine(ex.Message);
                 }
             }
         }
@@ -72,7 +46,7 @@ namespace Trabalho_POO.View
         public string AskManufacturer()
         {
             Console.WriteLine("Manufacturer: ");
-            string manufacturer = Console.ReadLine().Trim();
+            string manufacturer = Console.ReadLine();
             return manufacturer;
         }
 
@@ -100,9 +74,9 @@ namespace Trabalho_POO.View
 
                 return size;
             }
-            catch
+            catch (Exception ex)
             {
-                Console.WriteLine("Invalid.");
+                Console.WriteLine(ex.Message);
             }
         }
 
@@ -121,6 +95,8 @@ namespace Trabalho_POO.View
                 Console.WriteLine("Invalid.");
             }
         }
+
+        //Football Shirt
 
         public string AskTeam()
         {
@@ -156,13 +132,14 @@ namespace Trabalho_POO.View
                     if (year >= 1900)
                         return year;
                 }
-                catch
+                catch (Exception ex)
                 {
-                    Console.WriteLine("Invalid.");
+                    Console.WriteLine(ex.Message);
                 }
             }
         }
 
+        //Polo
 
         public string AskColorPolo()
         {
@@ -189,6 +166,7 @@ namespace Trabalho_POO.View
             }
         }
 
+        //Pants
 
         public int AskSizePants()
         {
@@ -207,9 +185,9 @@ namespace Trabalho_POO.View
                     }
                         
                 }
-                catch
+                catch (Exception ex)
                 {
-                    Console.WriteLine("Invalid input.");
+                    Console.WriteLine(ex.Message);
                 }
             }
         }
@@ -239,7 +217,7 @@ namespace Trabalho_POO.View
             }
 
             Console.WriteLine("\n Products List");
-            foreach (var p in products)
+            foreach (Product p in products)
             {
                 Console.WriteLine($"Reference: {p.Reference} \n Price: {p.Price} \n Manufacturer: {p.Manufacturer}");
               

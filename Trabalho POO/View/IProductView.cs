@@ -18,7 +18,6 @@ namespace Trabalho_POO.View
     public interface IProductView
     {
 
-        int AskType(); // 1-FutShirt, 2-Polo, 3-Pants
         double AskPrice();
         string AskManufacturer();
         string AskReference();
