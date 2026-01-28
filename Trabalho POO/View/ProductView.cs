@@ -16,16 +16,54 @@ namespace Trabalho_POO.View
 {
     public class ProductView : IProductView
     {
+        private double price;
+        private string manufacturer;
+        private string reference;
+
+        // Football Shirt
+        private string size;
+        private string sleeve;
+        private string team;
+        private string shirtClass;
+        private int year;
+
+        // Polo
+        private string color;
+        private string hasButtons;
+
+        // Pants
+        private int sizep;
+        private string model;
+        private string colorp;
+
+        public ProductView()
+        {
+            price = 17.0;
+            manufacturer = "Nike";
+            reference = "aybd76";
+
+            size = "S";
+            sleeve = "Long";
+            team = "Salgueiros";
+            shirtClass = "Home";
+            year = 2005;
+
+            color = "Red";
+            hasButtons = "Yes";
+
+            sizep = 36;
+            model = "Straight";
+            colorp = "Black";
+        }
+
+
+
         public double AskPrice()
         {
             while (true)
-            {
-                Console.Write("Price (€): ");
-                string input = Console.ReadLine().Trim();
-
+            { 
                 try
                 {
-                    double price = double.Parse(input);
 
                     if (price >= 0)
                     {
@@ -45,25 +83,16 @@ namespace Trabalho_POO.View
 
         public string AskManufacturer()
         {
-            Console.WriteLine("Manufacturer: ");
-            string manufacturer = Console.ReadLine();
             return manufacturer;
         }
 
         public string AskReference()
         {
-            Console.WriteLine("Reference: ");
-            string reference = Console.ReadLine().Trim();
             return reference;
-
-
         }
 
         public string AskSizeShirt()
         {
-            Console.WriteLine("Size (S/M/L/XL/XXL): ");
-            string size = Console.ReadLine().Trim();
-
             try
             {
 
@@ -84,8 +113,6 @@ namespace Trabalho_POO.View
         {
             while (true)
             {
-                Console.Write("Type of Sleeve (Long/Short): ");
-                string sleeve = Console.ReadLine().Trim();
                 if(sleeve == "Long" || sleeve == "Short")
 
                 {
@@ -100,16 +127,11 @@ namespace Trabalho_POO.View
 
         public string AskTeam()
         {
-            Console.WriteLine("Team (ex: SL Benfica, SC Braga, Vieira SC): ");
-            string team = Console.ReadLine().Trim();
             return team;
         }
 
         public string AskShirtClass()
         {
-            Console.Write("Class (Home/Away/Third): ");
-            string shirtClass = Console.ReadLine().Trim();
-
             if (shirtClass != "Home" && shirtClass != "Away" && shirtClass != "Third")
             {
                 Console.WriteLine("Invalid.");
@@ -122,12 +144,8 @@ namespace Trabalho_POO.View
         {
             while (true)
             {
-                Console.WriteLine("Year: ");
-                string input = Console.ReadLine();
-
                 try
                 {
-                    int year = int.Parse(input);
 
                     if (year >= 1900)
                         return year;
@@ -143,8 +161,6 @@ namespace Trabalho_POO.View
 
         public string AskColorPolo()
         {
-            Console.WriteLine("Color: ");
-            string color = Console.ReadLine().Trim();
             return color;
         }
 
@@ -152,12 +168,10 @@ namespace Trabalho_POO.View
         {
             while (true)
             {
-                Console.WriteLine("Has buttons? (Yes/No): ");
-                string answer = Console.ReadLine().Trim();
 
-                if (answer == "Yes" || answer == "No" || answer == "yes" || answer == "no")
+                if (hasButtons == "Yes" || hasButtons == "No" || hasButtons == "yes" || hasButtons == "no")
                 {
-                    return answer;
+                    return hasButtons;
                 }
                 else
                 {
@@ -172,13 +186,8 @@ namespace Trabalho_POO.View
         {
             while (true)
             {
-                Console.Write("Pants size (number): ");
-                string input = Console.ReadLine();
-
                 try
                 {
-                    int sizep = int.Parse(input);
-
                     if (sizep > 31)
                     {
                         return sizep;
@@ -195,16 +204,12 @@ namespace Trabalho_POO.View
 
         public string AskModelPants()
         {
-            Console.Write("Model (ex: Straight, Slim): ");
-            string model = Console.ReadLine().Trim();
             return model;
         }
 
         public string AskColorPants()
         {
-            Console.Write("Color: ");
-            string color = Console.Readline().Trim();
-            return color;
+            return colorp;
         }
 
 

@@ -13,35 +13,44 @@ using Trabalho_POO.View;
 
 namespace Trabalho_POO.Controller
 {
+
+    /// <summary>
+    /// Purpose:
+    /// Created by: joser
+    /// Created on: 17/01/2026 21:32:51
+    /// </summary>
+    /// <remarks></remarks>
+    /// <example></example>
+
     public class CustomerController
     {
-         List<Customer> customers;
-         ICustomerView view;
+        /// <param name="customers"> List of customers. </param>
+        /// <param name="view"> Customer View. </param>
+        List<Customer> customers;
+        ICustomerView view;
 
-        public CustomerController(List<Customer> customerList, ICustomerView customerView)
-        {
-            customers = customerList;
-            view = customerView;
-        }
-
-        //Add new customer
-        public void AddCustomer()
+        /// <summary>
+        /// Adding new customer method
+        /// </summary>
+        /// <param name="view.AskName()"> Asking customer name method. </param>
+        /// <param birth="view.AskBirthDate()"> Asking customer birth date method. </param>
+        /// <param nif="view.AskNIF()"> Asking customer NIF method. </param>
+        /// <param phone="view.AskPhone()"> Aking customer phone method. </param>
+        public bool AddCustomer()
         {
             string name = view.AskName();
-            DateTime birthDate = view.AskBirthDate();
+            var birth = view.AskBirthDate();
             int nif = view.AskNIF();
             int phone = view.AskPhone();
+        
+            customers.Add(new Customer(name, birth, nif, phone));
 
-            Customer newCustomer = new Customer(name, birthDate, nif, phone);
-            customers.Add(newCustomer); //add to the list
-
-            Console.WriteLine("Customer added.");
+            return true;
         }
 
-        // Show every customer
-        public void ShowAllCustomers()
+        /*public void ShowAllCustomers()
         {
             view.ShowCustomers(customers);
-        }
+        }*/
     }
 }

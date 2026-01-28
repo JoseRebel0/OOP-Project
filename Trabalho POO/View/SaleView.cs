@@ -17,12 +17,26 @@ namespace Trabalho_POO.View
 {
     public class SaleView : ISaleView
     {
-        public void ShowSales(List<Sale> sales)
+
+        private int customerNif;
+        private string reference;
+        private string addMoreProducts;
+
+        public SaleView()
+        {
+
+            nif = 123456789;
+            reference = "audhbu";
+            answ = "n";
+
+        }
+
+        public bool ShowSales(List<Sale> sales)
         {
             if (sales.Count == 0)
             {
                 Console.WriteLine("No sales.");
-                return;
+                return false;
             }
 
             Console.WriteLine("\n List of Sales");
@@ -30,9 +44,11 @@ namespace Trabalho_POO.View
             {
                 ShowSaleDetails(s, null, null);
             }
+
+            return true;
         }
 
-        public void ShowSaleDetails(Sale sale, List<Customer> customers, List<Product> products)
+        public bool ShowSaleDetails(Sale sale, List<Customer> customers, List<Product> products)
         {
             Customer customer = null;
 
@@ -63,19 +79,17 @@ namespace Trabalho_POO.View
 
 
             Console.WriteLine("Products:");
-            foreach (Product p in sale.Products)
+            foreach (Product p in sale.products)
             {
                 Console.WriteLine($" - {p.Manufacturer} {p.Reference} - {p.Price:F2}€");
             }
             Console.WriteLine($"Total: {sale.GetTotal():F2}€\n");
+
+            return true;
         }
 
         public int AskNIFCustomer()
         {
-            Console.Write("Customer NIF: ");
-            string input = Console.ReadLine().Trim();
-
-            int nif = int.Parse(input);
             if(nif.Length != 9)
             {
                 Console.WriteLine("9 digits.");
@@ -87,25 +101,26 @@ namespace Trabalho_POO.View
         public string AskProductRef(List<Product> products)
         {
             Console.WriteLine("\n Products:");
+
             for (int i = 0; i < products.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. {products[i].Manufacturer} {products[i].Reference} - {products[i].Price:F2}€");
             }
+
             while (true) //Helps to return to loop until valid input
             {
-                Console.Write("Product Reference: ");
-                string input = Console.ReadLine().Trim();
+                Console.WriteLine("Product Reference: ");
 
-                if (string.IsNullOrEmpty(input))
+                if (reference == null or reference == "")
                 {
                     return null; //end input (nothing on it)
                 }
                     
                 foreach (Product p in products)
                 {
-                    if (p.Reference == input)
+                    if (p.Reference == reference)
                     {
-                        return input;
+                        return reference;
                     }
                 }
 
@@ -119,9 +134,6 @@ namespace Trabalho_POO.View
         {
             while (true)
             {
-                Console.Write("Do you want to add more products? (y/n): ");
-                string answ = Console.ReadLine().Trim().ToLower();
-
                 if (answ == "y")
                     return true;
 

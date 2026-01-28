@@ -15,40 +15,39 @@ namespace Trabalho_POO.Controller
 {
     public class ProductController
     {
-         List<Product> products;
-         IProductView view;
+        /// <param name="products"> List of products. </param>
+        /// <param name="view"> Product View. </param>
+        List<Product> products;
+        IProductView view;
 
-        public ProductController(List<Product> productsList, IProductView productView)
-        {
-            products = productsList;
-            view = productView;
-        }
 
-        public void AddProduct()
+        /// <summary>
+        /// Adding product method
+        /// </summary>
+        public bool AddProduct()
         {
+            /// <param name="price"> Price of the product. </param>
+            /// <paramn name="manufacturer"> Manufacturer of the product. </param>
+            /// <param name="reference"> Reference of the product. </param>
             double price = view.AskPrice();
             string manufacturer = view.AskManufacturer();
             string reference = view.AskReference();
 
-            Console.WriteLine("Select Product Type:");
-            Console.WriteLine("-> Jersey");
-            Console.WriteLine("-> Polo");
-            Console.WriteLine("-> Pants");
-            string type = Console.ReadLine();
-
+            ///<summary> Choosing the type of product </summary>
             Product newProduct;
 
+            string type = "Polo";
             switch (type)
             {
-                case "Jersey" || "jersey" :
+                case "Jersey":
                     newProduct = CreateFutShirt(price, manufacturer, reference, type);
                     break;
 
-                case "Polo" || "polo":
+                case "Polo":
                     newProduct = CreatePolo(price, manufacturer, reference, type);
                     break;
 
-                case "Pants" || "pants":
+                case "Pants":
                     newProduct = CreatePants(price, manufacturer, reference, type);
                     break;
 
@@ -61,9 +60,19 @@ namespace Trabalho_POO.Controller
             if (newProduct != null)
             {
                 products.Add(newProduct);//add to the list
+
+                return true;
             }
+            return false;
         }
 
+        /// <summary>
+        /// Creating footbal shirt method.
+        /// </summary>
+        /// <param name="size"> Size of the shirt. </param>
+        /// <param name="sleeve"> Type of sleeve (long/short). </param>
+        /// <param name="shirtClass"> Class of the shirt (Home/Away/Third). </param>
+        /// <param name="year"> Year/Season of the shirt (08/09 ==> 2009) </param>
         FutShirt CreateFutShirt(double price, string manufacturer, string reference)
         {
             string size = view.AskSizeShirt();
@@ -76,6 +85,12 @@ namespace Trabalho_POO.Controller
             return new FutShirt(size, price, sleeve, type, manufacturer, reference, team, shirtClass, year);
         }
 
+        /// <summary>
+        /// Creating polo method.
+        /// </summary>
+        /// <param name="size"> Size of the polo. </param>
+        /// <param name="sleeve"> Type of sleeve (long/short). </param>
+        /// <param name="color"> Color of the polo. </param>
         Polo CreatePolo(double price, string manufacturer, string reference)
         {
             string size = view.AskSizeShirt();
@@ -87,6 +102,12 @@ namespace Trabalho_POO.Controller
             return new Polo(size, price, sleeve, type, manufacturer, reference, color, button);
         }
 
+        /// <summary>
+        /// Creating pants method.
+        /// </summary>
+        /// <param name="size"> Size of the pants (numeric). </param>
+        /// <param name="model"> Model of the pants. </param>
+        /// <param name="color"> Color of the pants. </param>
         Pants CreatePants(double price, string manufacturer, string reference)
         {
             int size = view.AskSizePants();
@@ -97,9 +118,9 @@ namespace Trabalho_POO.Controller
         }
 
 
-        public void ShowProducts()
+        /*public void ShowProducts()
         {
             view.ShowProducts(products);
-        }
+        }*/
     }
 }

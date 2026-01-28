@@ -16,8 +16,8 @@ namespace Trabalho_POO.View
 {
     public interface ISaleView
     {
-        void ShowSales(List<Sale> sales);
-        void ShowSaleDetails(Sale sale, List<Customer> customers, List<Product> products);
+        bool ShowSales(List<Sale> sales);
+        bool ShowSaleDetails(Sale sale, List<Customer> customers, List<Product> products);
 
         int AskNIFCustomer();
         string AskProductRef(List<Product> products);

@@ -24,6 +24,18 @@ namespace Trabalho_POO.View
     /// <example></example>
     public class CustomerView : ICustomerView
     {
+        private string name;
+        private DateTime date;
+        private int nif;
+        private int phone;
+
+        public CustomerView()
+        {
+            name = "José Rebelo";
+            date = new DateTime(2026, 1, 12);
+            nif = 123456789;
+            phone = 987654321;
+        }
 
         public void ShowCustomers(List<Customer> customers)
         {
@@ -41,9 +53,7 @@ namespace Trabalho_POO.View
         }
 
         public string AskName()
-        {
-            Console.Write("First and Last Name: ");
-            string name = Console.ReadLine();
+        {   
             return name;
         }
 
@@ -51,11 +61,8 @@ namespace Trabalho_POO.View
         {
             while (true)
             {
-                Console.Write("Birth date (dd/mm/yyyy): ");
-                string input = Console.ReadLine();
                 try
                 {
-                    DateTime date = DateTime.Parse(input);
                     return date;
                 }
                 catch (Exception ex)
@@ -70,18 +77,8 @@ namespace Trabalho_POO.View
         {
             while (true)
             {
-                Console.Write("NIF (9 digits): ");
-                string input = Console.ReadLine(); //readline only reads strings
-
-                if (input.Length != 9)
-                {
-                    Console.WriteLine("9 digits.");
-                    continue;
-                }
-
                 try
                 {
-                    int nif = int.Parse(input);
                     return nif;
                 }
                 catch (Exception ex)
@@ -96,18 +93,8 @@ namespace Trabalho_POO.View
         {
             while (true)
             {
-                Console.Write("Phone number (9 digits): ");
-                string input = Console.ReadLine();
-
-                if (input.Length != 9)
-                {
-                    Console.WriteLine("9 digits.");
-                    continue;
-                }
-
                 try
                 {
-                    int phone = int.Parse(input);
                     return phone;
                 }
                 catch (Exception ex)

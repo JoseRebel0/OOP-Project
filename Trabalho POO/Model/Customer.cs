@@ -53,10 +53,10 @@ namespace Trabalho_POO
         /// <summary>
         /// Parameterized constructor.
         /// </summary>
-        /// <param name="nm">Name of the client.</param>
-        /// <param name="bD">Birth date of the client.</param>
-        /// <param name="n">Tax identification number (NIF) of the client.</param>
-        /// <param name="p">Phone number of the client.</param>
+        /// <param name="nm">Customer name.</param>
+        /// <param name="bD">Customer birth date.</param>
+        /// <param name="n">Customer NIF. </param>
+        /// <param name="p">Customer phone number. </param>
         public Customer(string nm, DateTime bD, int n, int p)
         {
             name = nm;

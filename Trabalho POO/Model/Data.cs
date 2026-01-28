@@ -19,28 +19,8 @@ namespace Trabalho_POO.Model
     [Serializable]
     public class Data
     {
-        #region Attributes
 
-        public List<Customer> Customers;
-        public List<Product> Products;
-        public List<Sale> Sales;
-       
-        #endregion
-
-        #region Constructors
-
-        public Data()
-        {
-            Customers = new List<Customer>();
-            Products = new List<Product>();
-            Sales = new List<Sale>();
-        }
-
-
-
-        #endregion
-
-        #region Binary File Methods
+        #region Methods
 
         /// <summary>
         /// Save data
@@ -80,7 +60,7 @@ namespace Trabalho_POO.Model
                 FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
                 BinaryFormatter bf = new BinaryFormatter();
 
-                Data data = (Data)bf.Deserialize(fs);
+                bf.Deserialize(fs);
                 fs.Close();
 
                 return data;

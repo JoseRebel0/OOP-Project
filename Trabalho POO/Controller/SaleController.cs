@@ -16,36 +16,33 @@ namespace Trabalho_POO.Controller
 {
     public class SaleController
     {
+        /// <param name="sales"> List of sales. </param>
+        /// <param name="customers"> List of costumers. </param>
+        /// <param name="products"> List of products.  </param>
+        /// <param name="view"> Sale View. </param>
          List<Sale> sales;
          List<Customer> customers;
          List<Product> products;
          ISaleView view;
 
-        public SaleController(List<Sale> salesList, List<Customer> customersList, 
-            List<Product> productsList, ISaleView saleView)
-        {
-            sales = salesList;
-            customers = customersList;
-            products = productsList;
-            view = saleView;
-        }
 
-        public void RegisterSale()
+        /// <summary>
+        /// Register sale method.
+        /// </summary>
+        public bool RegisterSale()
         {
-            Console.WriteLine("\nNew Sale");
 
             if (customers.Count == 0)
             {
-                Console.WriteLine("No customers.");
                 return;
             }
 
             if (products.Count == 0)
             {
-                Console.WriteLine("No products.");
                 return;
             }
 
+            ///<param name="nif"> Customer NIF to find. </param>
             string nif = view.AskNIFCustomer();
 
             bool found = false;
@@ -61,19 +58,22 @@ namespace Trabalho_POO.Controller
 
             if (!found)
             {
-                Console.WriteLine("Customer not found.");
                 return;
             }
-
+            /// <summary> 
+            /// New list only for the items for the sale.
+            /// </summary>
             List<Product> saleItems = new List<Product>();
 
             do
             {
+                /// <param name="reference"> Asking the reference of the product. </param>
                 string reference = view.AskProductRef(products);
 
                 if (reference == null)
                     break;
 
+                /// <param name="selectedProduct"> Product to select. </param>
                 Product selectedProduct = null;
                 foreach (Product p in saleItems)
                 {
@@ -87,32 +87,28 @@ namespace Trabalho_POO.Controller
 
                 if (selectedProduct == null)
                 {
-                    Console.WriteLine("Product not found.");
                     continue;
                 }
 
                 saleItems.Add(selectedProduct);//add selected product to sale items
-                Console.WriteLine($"Added: {selectedProduct.Manufacturer} {selectedProduct.Reference} - {selectedProduct.Price:F2}€");
 
             } while (view.AskMoreProducts());
 
 
             if (saleItems.Count == 0)
             {
-                Console.WriteLine("No products added.");
                 return;
             }
 
             Sale newSale = new Sale(nif, DateTime.Now, saleItems);
             sales.Add(newSale); //add new sale to sales list
-
-            Console.WriteLine("Sale registered successfully!");
-            view.ShowSaleDetails(newSale, customers, products);
+            return true;
+            //view.ShowSaleDetails(newSale, customers, products);
         }
 
-        public void ListSales()
+        /*public void ListSales()
         {
             view.ShowSales(sales);
-        }
+        }*/
     }
 }
